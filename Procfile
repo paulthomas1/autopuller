@@ -1,1 +1,1 @@
-web: guicorn runp-heroku:app
+web: gunicorn runp-heroku:app
