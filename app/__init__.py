@@ -19,10 +19,12 @@ def index():
     hook_blocks = requests.get('https://api.github.com/meta').json()['hooks']
 
     if request.method == 'GET':
+        print("We got a get")
         return ' Nothing to see here, move along {}'.format(app.config['fish'])
 
     elif request.method == 'POST':
         # Check if the POST request if from github.com
+        print("we got a post")
         for block in hook_blocks:
             ip = ipaddress.ip_address(u'%s' % request.remote_addr)
             if ipaddress.ip_address(ip) in ipaddress.ip_network(block):
