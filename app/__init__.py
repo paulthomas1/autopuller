@@ -57,13 +57,13 @@ def index():
         #         subprocess.Popen(["git", "pull", "origin", "master"], cwd=repo['path'])
         return 'OK'
 
-if __name__ == "__main__":
-    try:
-        port_number = int(sys.argv[1])
-    except:
-        port_number = 80
-    is_dev = os.environ.get('ENV', None) == 'dev'
-    if os.environ.get('USE_PROXYFIX', None) == 'true':
-        from werkzeug.contrib.fixers import ProxyFix
-        app.wsgi_app = ProxyFix(app.wsgi_app)
-    app.run(host='0.0.0.0', port=port_number, debug=True)
+# if __name__ == "__main__":
+#     try:
+#         port_number = int(sys.argv[1])
+#     except:
+#         port_number = 80
+#     is_dev = os.environ.get('ENV', None) == 'dev'
+#     if os.environ.get('USE_PROXYFIX', None) == 'true':
+#         from werkzeug.contrib.fixers import ProxyFix
+#         app.wsgi_app = ProxyFix(app.wsgi_app)
+#     app.run(host='0.0.0.0', port=port_number, debug=True)
