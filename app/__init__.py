@@ -66,4 +66,4 @@ if __name__ == "__main__":
     if os.environ.get('USE_PROXYFIX', None) == 'true':
         from werkzeug.contrib.fixers import ProxyFix
         app.wsgi_app = ProxyFix(app.wsgi_app)
-    app.run(host='0.0.0.0', port=port_number, debug=is_dev)
+    app.run(host='0.0.0.0', port=port_number, debug=True)
