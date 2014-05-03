@@ -63,8 +63,8 @@
           <file leaf-file-name="__init__.py" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/__init__.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.47091413" vertical-offset="34" max-vertical-offset="1258">
-                  <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+                <state vertical-scroll-proportion="0.14127424" vertical-offset="306" max-vertical-offset="1292">
+                  <caret line="21" column="78" selection-start-line="21" selection-start-column="78" selection-end-line="21" selection-end-column="78" />
                   <folding>
                     <element signature="e#23#32#0" expanded="true" />
                   </folding>
@@ -654,12 +654,12 @@
       <updated>1399144993576</updated>
       <workItem from="1399144994063" duration="290000" />
       <workItem from="1399145312221" duration="644000" />
-      <workItem from="1399145983763" duration="4638000" />
+      <workItem from="1399145983763" duration="5135000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5572000" />
+    <option name="totallyTimeSpent" value="6069000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="60" y="-8" width="1229" height="736" extended-state="6" />
@@ -767,8 +767,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47091413" vertical-offset="34" max-vertical-offset="1258">
-          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.14127424" vertical-offset="306" max-vertical-offset="1292">
+          <caret line="21" column="78" selection-start-line="21" selection-start-column="78" selection-end-line="21" selection-end-column="78" />
           <folding>
             <element signature="e#23#32#0" expanded="true" />
           </folding>

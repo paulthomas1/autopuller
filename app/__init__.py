@@ -10,6 +10,7 @@ import ipaddress
 from flask import Flask, request, abort
 
 app = Flask(__name__)
+app.config['fish'] = "none"
 repo_meta = "none"
 
 @app.route("/", methods=['GET', 'POST'])
@@ -18,7 +19,7 @@ def index():
     hook_blocks = requests.get('https://api.github.com/meta').json()['hooks']
 
     if request.method == 'GET':
-        return ' Nothing to see here, move along {}'.format(repo_meta)
+        return ' Nothing to see here, move along {}'.format(app.config['fish'])
 
     elif request.method == 'POST':
         # Check if the POST request if from github.com
@@ -43,6 +44,7 @@ def index():
         }
         match = re.match(r"refs/heads/(?P<branch>.*)", payload['ref'])
 
+        app.config['fish'] = repo_meta
         # setattr(Flask.g, 'stuff', repo_meta)
         # if match:
         #     repo_meta['branch'] = match.groupdict()['branch']
