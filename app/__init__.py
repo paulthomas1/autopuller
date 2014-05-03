@@ -32,12 +32,14 @@ def index():
         #     else:
         #         abort(403)
         print(request)
+        print(request.headers.get('X-GitHub-Event'))
+        print(request.data)
         if request.headers.get('X-GitHub-Event') == "ping":
             return json.dumps({'msg': 'Hi!'})
         if request.headers.get('X-GitHub-Event') != "push":
             return json.dumps({'msg': "wrong event type"})
 
-        repos = json.loads(io.open('repos.json', 'r').read())
+        # repos = json.loads(io.open('repos.json', 'r').read())
 
         payload = json.loads(request.data)
         print(payload)
