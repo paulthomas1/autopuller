@@ -18,7 +18,8 @@ def index():
     hook_blocks = requests.get('https://api.github.com/meta').json()['hooks']
 
     if request.method == 'GET':
-        return ' Nothing to see here, move along {}'.format(getattr(Flask.g, 'stuff', ""))
+        return ' Nothing to see here, move along'
+        # {}'.format(getattr(Flask.g, 'stuff', ""))
 
     elif request.method == 'POST':
         # Check if the POST request if from github.com
@@ -43,7 +44,7 @@ def index():
         }
         match = re.match(r"refs/heads/(?P<branch>.*)", payload['ref'])
 
-        setattr(Flask.g, 'stuff', repo_meta)
+        # setattr(Flask.g, 'stuff', repo_meta)
         # if match:
         #     repo_meta['branch'] = match.groupdict()['branch']
         #     repo = repos.get('{owner}/{name}/branch:{branch}'.format(**repo_meta), None)
