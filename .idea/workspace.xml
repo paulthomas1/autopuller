@@ -63,8 +63,8 @@
           <file leaf-file-name="__init__.py" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/__init__.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.7174515" vertical-offset="455" max-vertical-offset="1360">
-                  <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+                <state vertical-scroll-proportion="0.19944598" vertical-offset="387" max-vertical-offset="1360">
+                  <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="32" selection-end-column="20" />
                   <folding>
                     <element signature="e#23#32#0" expanded="true" />
                   </folding>
@@ -665,12 +665,12 @@
       <updated>1399144993576</updated>
       <workItem from="1399144994063" duration="290000" />
       <workItem from="1399145312221" duration="644000" />
-      <workItem from="1399145983763" duration="5746000" />
+      <workItem from="1399145983763" duration="6048000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6680000" />
+    <option name="totallyTimeSpent" value="6982000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="60" y="-8" width="1229" height="736" extended-state="6" />
@@ -786,8 +786,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7174515" vertical-offset="455" max-vertical-offset="1360">
-          <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.19944598" vertical-offset="387" max-vertical-offset="1360">
+          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="32" selection-end-column="20" />
           <folding>
             <element signature="e#23#32#0" expanded="true" />
           </folding>

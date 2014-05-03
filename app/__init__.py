@@ -25,12 +25,12 @@ def index():
     elif request.method == 'POST':
         # Check if the POST request if from github.com
         print("we got a post")
-        for block in hook_blocks:
-            ip = ipaddress.ip_address(u'%s' % request.remote_addr)
-            if ipaddress.ip_address(ip) in ipaddress.ip_network(block):
-                break  #the remote_addr is within the network range of github
-            else:
-                abort(403)
+        # for block in hook_blocks:
+        #     ip = ipaddress.ip_address(u'%s' % request.remote_addr)
+        #     if ipaddress.ip_address(ip) in ipaddress.ip_network(block):
+        #         break  #the remote_addr is within the network range of github
+        #     else:
+        #         abort(403)
         print(request)
         if request.headers.get('X-GitHub-Event') == "ping":
             return json.dumps({'msg': 'Hi!'})
