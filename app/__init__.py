@@ -10,7 +10,7 @@ import ipaddress
 from flask import Flask, request, abort
 
 app = Flask(__name__)
-niceStuff = "none"
+repo_meta = "none"
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
@@ -18,8 +18,7 @@ def index():
     hook_blocks = requests.get('https://api.github.com/meta').json()['hooks']
 
     if request.method == 'GET':
-        return ' Nothing to see here, move along'
-        # {}'.format(getattr(Flask.g, 'stuff', ""))
+        return ' Nothing to see here, move along {}'.format(repo_meta)
 
     elif request.method == 'POST':
         # Check if the POST request if from github.com
