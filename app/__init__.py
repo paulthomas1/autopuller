@@ -31,7 +31,7 @@ def index():
                 break  #the remote_addr is within the network range of github
             else:
                 abort(403)
-
+        print(request)
         if request.headers.get('X-GitHub-Event') == "ping":
             return json.dumps({'msg': 'Hi!'})
         if request.headers.get('X-GitHub-Event') != "push":
@@ -40,10 +40,12 @@ def index():
         repos = json.loads(io.open('repos.json', 'r').read())
 
         payload = json.loads(request.data)
+        print(payload)
         repo_meta = {
             'name': payload['repository']['name'],
             'owner': payload['repository']['owner']['name'],
         }
+        print(repo_meta)
         match = re.match(r"refs/heads/(?P<branch>.*)", payload['ref'])
 
         app.config['fish'] = repo_meta
