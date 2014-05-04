@@ -10,68 +10,26 @@ import ipaddress
 from flask import Flask, request, abort
 
 app = Flask(__name__)
-app.config['fish'] = "none"
+# Giant hack to store git post data. Global state FTW
+app.config['repo_data'] = "none"
 repo_meta = "none"
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
-    # Store the IP address blocks that github uses for hook requests.
-    hook_blocks = requests.get('https://api.github.com/meta').json()['hooks']
-
     if request.method == 'GET':
-        print("We got a get")
         return ' Nothing to see here, move along {}'.format(app.config['fish'])
 
     elif request.method == 'POST':
-        # Check if the POST request if from github.com
-        print("we got a post")
-        # for block in hook_blocks:
-        #     ip = ipaddress.ip_address(u'%s' % request.remote_addr)
-        #     if ipaddress.ip_address(ip) in ipaddress.ip_network(block):
-        #         break  #the remote_addr is within the network range of github
-        #     else:
-        #         abort(403)
-        print(request)
-        print(request.headers.get('X-GitHub-Event'))
-        print(request.data)
         if request.headers.get('X-GitHub-Event') == "ping":
             return json.dumps({'msg': 'Hi!'})
         if request.headers.get('X-GitHub-Event') != "push":
             return json.dumps({'msg': "wrong event type"})
 
-        # repos = json.loads(io.open('repos.json', 'r').read())
-
         payload = json.loads(request.data)
-        print(payload)
         repo_meta = {
             'name': payload['repository']['name'],
             'owner': payload['repository']['owner']['name'],
         }
         print(repo_meta)
-        match = re.match(r"refs/heads/(?P<branch>.*)", payload['ref'])
-
-        app.config['fish'] = repo_meta
-        # setattr(Flask.g, 'stuff', repo_meta)
-        # if match:
-        #     repo_meta['branch'] = match.groupdict()['branch']
-        #     repo = repos.get('{owner}/{name}/branch:{branch}'.format(**repo_meta), None)
-        # else:
-        #     repo = repos.get('{owner}/{name}'.format(**repo_meta), None)
-        # if repo and repo.get('path', None):
-        #     if repo.get('action', None):
-        #         for action in repo['action']:
-        #             subprocess.Popen(action, cwd=repo['path'])
-        #     else:
-        #         subprocess.Popen(["git", "pull", "origin", "master"], cwd=repo['path'])
+        app.config['repo_data'] = repo_meta
         return 'OK'
-
-# if __name__ == "__main__":
-#     try:
-#         port_number = int(sys.argv[1])
-#     except:
-#         port_number = 80
-#     is_dev = os.environ.get('ENV', None) == 'dev'
-#     if os.environ.get('USE_PROXYFIX', None) == 'true':
-#         from werkzeug.contrib.fixers import ProxyFix
-#         app.wsgi_app = ProxyFix(app.wsgi_app)
-#     app.run(host='0.0.0.0', port=port_number, debug=True)
